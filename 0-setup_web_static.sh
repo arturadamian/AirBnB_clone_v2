@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
-# configures a new Ubuntu machine with installed nginx web server
-#if ! which nginx > /dev/null 2>&1;
-#then
-apt-get -y update
-apt-get -y install nginx
-#fi
+# sets up your web servers for the deployment
 mkdir -p /data/web_static/shared/ /data/web_static/releases/test/
 echo -e '<html>\n  <head>\n  </head>\n  <body>\n   Holberton School\n  </body>\n</html>' > /data/web_static/releases/test/index.html
 ln -f -s /data/web_static/releases/test/ /data/web_static/current
