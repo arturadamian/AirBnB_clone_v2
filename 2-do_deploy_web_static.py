@@ -11,6 +11,7 @@ from datetime import datetime
 
 env.hosts = ['35.227.55.30', '35.231.220.68']
 
+
 def do_pack():
     """ generates a .tgz archive from the contentes of web_static folder """
     try:
@@ -19,8 +20,9 @@ def do_pack():
               "/data/web_static/".format(dt))
         ap = "versions/web_static_{}.tgz".format(dt)
         return ap
-    except:
+    except BaseException:
         return None
+
 
 def do_deploy(archive_path):
     if archive_path is None:
@@ -47,5 +49,5 @@ def do_deploy(archive_path):
         run('ln -s /data/web_static/releases/{}/ /data/web_static/current'.
             format(archive_name))
         print("New version deployed!")
-    except:
+    except BaseException:
         return False
