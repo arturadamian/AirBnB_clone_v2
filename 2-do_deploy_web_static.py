@@ -9,7 +9,7 @@ from fabric.context_managers import cd
 from fabric.api import env
 from datetime import datetime
 
-env.hosts = ['root@34.206.234.184:39409']
+env.hosts = ['35.227.55.30', '35.231.220.68']
 
 def do_pack():
     """ generates a .tgz archive from the contentes of web_static folder """
