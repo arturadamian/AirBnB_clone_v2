@@ -30,7 +30,7 @@ def display_var(text):
 @app.route('/python/<text>', strict_slashes=False)
 def display_bydefault(text="is cool"):
     """display variable by default"""
-    return 'C %s' % text.replace("_", " ")
+    return 'Python %s' % text.replace("_", " ")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
