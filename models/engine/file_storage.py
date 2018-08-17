@@ -18,8 +18,13 @@ class FileStorage:
             Return the dictionary
         '''
         db_dict = {}
-
-        return self.__objects
+        if cls:
+            for key, value in self.__objects.items():
+                if isinstance(value, cls):
+                    db_dict[key] = value
+        else:
+            return self.__objects
+        return db_dict
 
     def new(self, obj):
         '''
@@ -65,3 +70,9 @@ class FileStorage:
             if key in self.__objects:
                 del self.__objects[key]
             self.save()
+
+    def close(self):
+        """
+         call reload
+        """
+        self.reload()
