@@ -54,7 +54,6 @@ class DBStorage:
                     db_dict[key] = item
         return db_dict
 
-
     def new(self, obj):
         """'"""
         if obj:
