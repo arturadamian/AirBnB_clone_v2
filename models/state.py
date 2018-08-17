@@ -2,11 +2,12 @@
 '''
     Implementation of the State class
 '''
-
+import models
 from models.base_model import BaseModel
 from sqlalchemy import Column, String
 from models.base_model import Base
 from sqlalchemy.orm import relationship
+from models.city import City
 import os
 
 
@@ -28,7 +29,7 @@ class State(BaseModel, Base):
         def cities(self):
             """"""
             list_cities = []
-            for item in self.cities:
+            for item in models.storage.all(City).values():
                 if item.state_id == self.id:
                     list_cities.append(item)
             return list_cities
